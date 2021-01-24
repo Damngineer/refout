@@ -1,29 +1,21 @@
-  
 using System;
-
-namespace ödev
+                     
+public class refoutexample
 {
-    class Program
+   public static void Main()
     {
-        static void Main(string[] args)
-        {
-            //Console.WriteLine("Hello World!");
-            musteri musteri1 = new musteri();
-            musteri1.id = 21895855;
-            musteri1.name = "berk";
-            musteri1.sName = "saglicak";
-
-            musteri musteri2 = new musteri();
-            musteri1.id = 21895558;
-            musteri1.name = "kubilay";
-            musteri1.sName = "arslan";
-
-
-            musteriManager manager = new musteriManager();
-
-            manager.ekle(musteri1);
-            manager.ekle(musteri2);
-            manager.sil(musteri2);
-        }
+        int refValue=5;     //Başlangıç değeri atanması zorunludur.
+        int outValue;       //Başlangıç değeri atanması zorunlu değildir.
+ 
+        refout(ref refValue, out outValue);
+ 
+        Console.WriteLine("ChangeMethod'dan sonra refValue: " + refValue); // 7
+        Console.WriteLine("ChangeMethod'dan sonra outValue: " + outValue);  // 8
+    }
+ 
+    static void refout(ref int i,out int j)
+    {
+          i = i + 2;  // ref için değer atanması zorunlu değil
+          j = 8;      // out için değer atanması zorunlu
     }
 }
